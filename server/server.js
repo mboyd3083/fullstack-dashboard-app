@@ -13,7 +13,9 @@ import salesRoutes from "./routes/sales.js";
 
 //data imports
 import User from "./models/User.js";
-import { dataUser } from "./data/index.js";
+import Product from "./models/ProductInfo.js"
+import ProductStat from "./models/ProductStat.js";
+import { dataUser ,dataProduct, dataProductStat} from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -42,7 +44,8 @@ const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-    // User.insertMany(dataUser);
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
   } catch (error) {
     console.log(error);
   }
