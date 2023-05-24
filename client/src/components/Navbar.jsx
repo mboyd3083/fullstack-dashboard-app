@@ -22,6 +22,7 @@ import {
   Box,
   Typography,
   Menu,
+  MenuItem,
 } from "@mui/material";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
@@ -123,7 +124,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               open={isOpen}
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-            ></Menu>
+            >
+              <MenuItem onClick= {handleClose}>Log Out</MenuItem>
+            </Menu>
           </FlexBetween>
         </FlexBetween>
       </Toolbar>
