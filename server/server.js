@@ -13,9 +13,9 @@ import salesRoutes from "./routes/sales.js";
 
 //data imports
 import User from "./models/User.js";
-import Product from "./models/ProductInfo.js"
+import Product from "./models/ProductInfo.js";
 import ProductStat from "./models/ProductStat.js";
-import { dataUser ,dataProduct, dataProductStat} from "./data/index.js";
+import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -33,10 +33,6 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
-
-app.get("/", (req, res) => {
-  res.send("hello there");
-});
 
 const PORT = process.env.PORT || 9000;
 
