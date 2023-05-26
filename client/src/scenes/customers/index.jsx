@@ -6,7 +6,6 @@ import { DataGrid } from "@mui/x-data-grid";
 const Customers = () => {
   const theme = useTheme();
   const { data, isLoading } = useGetCustomersQuery();
-  console.log(data)
   const columns = [
     {
       field : "_id",
@@ -31,8 +30,8 @@ const Customers = () => {
       }
     },
     {
-      field : "city",
-      headerName: "City",
+      field : "country",
+      headerName: "Country",
       flex: 0.4,
     },
     {
