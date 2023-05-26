@@ -21,7 +21,7 @@
         },
         city:String,
         state:String,
-        county:String, 
+        country:String, 
         occupation: String,
         phoneNumber: String, 
         transaction: Array,
