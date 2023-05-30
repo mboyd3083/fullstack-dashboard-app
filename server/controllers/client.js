@@ -1,7 +1,7 @@
 import Product from "../models/ProductInfo.js";
 import ProductStat from "../models/ProductStat.js";
 import User from "../models/User.js";
-import Transactions from "../models/Transaction.js";
+import Transaction from "../models/Transaction.js";
 
 const getProducts = async (req, res) => {
   try {
@@ -46,7 +46,7 @@ const getTransactions = async (req, res) => {
 
     const sortFormatted = Boolean(sort) ? generateSort() : {};
 
-    const transactions = await Transactions.find({
+    const transactions = await Transaction.find({
       $or: [
         { cost: { $regex: new RegExp(search, "i") } },
         { userId: { $regex: new RegExp(search, "i") } },
@@ -56,9 +56,12 @@ const getTransactions = async (req, res) => {
       .skip(page * pageSize)
       .limit(pageSize);
 
-    const total = await Transaction.countDocuments({
-      name: { $regex: search, $options: "i" },
-    });
+      // console.log(transactions);
+  const total = await Transaction.countDocuments({
+    name: { $regex: search, $options: "i" },
+  });
+
+    console.log(total)
 
     res.status(200).json({
       transactions,
