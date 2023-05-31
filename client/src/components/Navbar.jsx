@@ -17,7 +17,6 @@ import {
   Toolbar,
   IconButton,
   InputBase,
-  Icon,
   Button,
   Box,
   Typography,
