@@ -1,21 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 
-
 const Transactions = () => {
   const theme = useTheme();
 
-  //values to be sent to the backend
+  // values to be sent to the backend
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(20);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
-  const [searchInput, setSearchInput] = useState("");
 
+  const [searchInput, setSearchInput] = useState("");
   const { data, isLoading } = useGetTransactionsQuery({
     page,
     pageSize,
@@ -36,7 +35,7 @@ const Transactions = () => {
     },
     {
       field: "createdAt",
-      headerName: "createdAt",
+      headerName: "CreatedAt",
       flex: 1,
     },
     {
@@ -58,7 +57,7 @@ const Transactions = () => {
     <Box m="1.5rem 2.5rem">
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <Box
-        height="800vh"
+        height="80vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -108,4 +107,5 @@ const Transactions = () => {
     </Box>
   );
 };
+
 export default Transactions;
